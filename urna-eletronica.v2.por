@@ -3,48 +3,77 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro voto, nulo = 0,candidato1 = 0,candidato2 = 0,candidato3 = 0,branco = 0,encerrar = 0
+		inteiro voto, nulo = 0,candidato1 = 0,candidato2 = 0,candidato3 = 0,branco = 0
+		caracter encerrar = 'n'
+		cadeia Candidato1, Candidato2, Candidato3
 
 		
 		
-		faca {
-				escreva (" 1 - Candidato 1 \n")
-				escreva (" 2 - Candidato 2 \n")
-				escreva (" 3 - Candidato 3 \n")
-				escreva (" 5 - Voto em branco \n")
-				escreva (" 8 - Voto nulo \n")
-				escreva (" 0 - Encerrar a votação \n")
+				escreva ("O nome do Candidato 1: ")
+				leia (Candidato1)
+				escreva ("O nome do Candidato 2: ")
+				leia (Candidato2)
+				escreva ("O nome do Candidato 3: ")
+				leia (Candidato3)
+		faca {	
+				escreva (" Escolha dentre as opções abaixo \n")
+				escreva (" 1 - Candidato ", Candidato1,"\n")
+				escreva (" 2 - Candidato ", Candidato2,"\n")
+				escreva (" 3 - Candidato ", Candidato3,"\n")
+				escreva (" 4 - Voto em branco \n")
+				escreva (" 5 - Voto nulo \n")
 				escreva ("Digite o seu voto: \n")
 				leia (voto)
 			
 			escolha (voto)
 			{
+				caso 5:
+				escreva ("Você votou nulo \n")
+				nulo ++
+				pare
+				
 				caso 1:
-				escreva ("Você votou no candidato MANOEL GOMES DA SILVA \n")
+				escreva ("Você votou no candidato ", Candidato1,"\n")
 				candidato1 ++
 				pare
 		
 				caso 2:
-				escreva ("Você votou no candidato EDNALDO PEREIRA EDNALDO PEREIRA \n")
+				escreva ("Você votou no candidato ", Candidato2,"\n")
 				candidato2 ++
 				pare
 		
 				caso 3:
-				escreva ("Você votou no candidato BOLSOLULA A FUSÃO CONFUSÃO \n")
+				escreva ("Você votou no candidato ", Candidato3,"\n")
 				candidato3 ++
 				pare
 		
-				caso contrario:
-				escreva ("Você votou em BRANCO \n")
+				caso 4:
+				escreva ("Você votou em branco \n")
 				branco ++
+				pare
 			}
+				escreva ("Deseja encerrar a votação? Digite s/n:")
+				leia (encerrar)
+			} enquanto (encerrar != 's')
+				inteiro total = nulo + candidato1 + candidato2 + candidato3 + branco
+				escreva ("Votação finalizada \n")
 				escreva ("Total de votos nulos: ",nulo,"\n")
-				escreva ("Total de votos do candidato manoel: ", candidato1,"\n")
-				escreva ("Total de votos do candidato ednaldo: ", candidato2,"\n")
-				escreva ("Total de votos do candidato bolsolula: ", candidato3,"\n")
-				escreva ("Total de votos brancos: ",branco,"\n")		
-			} enquanto (encerrar != 0)
-			
+				escreva ("Total de votos do candidato ", Candidato1," :", candidato1,"\n")
+				escreva ("Total de votos do candidato ", Candidato2," :", candidato2,"\n")
+				escreva ("Total de votos do candidato ", Candidato3," :", candidato3,"\n")
+				escreva ("Total de votos brancos: ",branco,"\n")
+				escreva ("Total de votos: ",total,"\n")
+
+				se (candidato1 > candidato2 e candidato1 > candidato3) {
+					escreva ("O vencedor da eleição é o candidato ",Candidato1,"\n")
+				} senao se (candidato2 > candidato1 e candidato2 > candidato3) {
+					escreva ("O vencedor da eleição é o candidato ",Candidato2,"\n")
+				} senao se (candidato3 > candidato1 e candidato3 > candidato2) {
+					escreva ("O vencedor da eleição é o candidato ",Candidato3,"\n")
+				} senao {
+					escreva ("A eleição terminou em empate")
+				}
+							
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -52,7 +81,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1206; 
+ * @POSICAO-CURSOR = 352; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
