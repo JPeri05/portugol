@@ -4,7 +4,7 @@ programa
 	funcao inicio()
 	{
 		inteiro voto, nulo = 0,candidato1 = 0,candidato2 = 0,candidato3 = 0,branco = 0
-		caracter encerrar = 'n'
+		caracter encerrar = 's'
 		cadeia Candidato1, Candidato2, Candidato3
 
 		
@@ -22,6 +22,7 @@ programa
 				escreva (" 3 - Candidato ", Candidato3,"\n")
 				escreva (" 4 - Voto em branco \n")
 				escreva (" 5 - Voto nulo \n")
+				escreva (" Ou digite o pin de segurança para encerrar a votação \n")
 				escreva ("Digite o seu voto: \n")
 				leia (voto)
 			
@@ -51,10 +52,13 @@ programa
 				escreva ("Você votou em branco \n")
 				branco ++
 				pare
-			}
-				escreva ("Deseja encerrar a votação? Digite s/n:")
+
+				caso 40028922:
+				escreva ("Tem certeza que deseja encerrar a votação? Digite s/n:")
 				leia (encerrar)
-			} enquanto (encerrar != 's')
+			}
+			
+			} 	enquanto (encerrar != 's')
 				inteiro total = nulo + candidato1 + candidato2 + candidato3 + branco
 				escreva ("Votação finalizada \n")
 				escreva ("Total de votos nulos: ",nulo,"\n")
@@ -65,11 +69,11 @@ programa
 				escreva ("Total de votos: ",total,"\n")
 
 				se (candidato1 > candidato2 e candidato1 > candidato3) {
-					escreva ("O vencedor da eleição é o candidato ",Candidato1,"\n")
+					escreva ("O vencedor da eleição é o candidato(a) ",Candidato1,"\n")
 				} senao se (candidato2 > candidato1 e candidato2 > candidato3) {
-					escreva ("O vencedor da eleição é o candidato ",Candidato2,"\n")
+					escreva ("O vencedor da eleição é o candidato(a) ",Candidato2,"\n")
 				} senao se (candidato3 > candidato1 e candidato3 > candidato2) {
-					escreva ("O vencedor da eleição é o candidato ",Candidato3,"\n")
+					escreva ("O vencedor da eleição é o candidato(a) ",Candidato3,"\n")
 				} senao {
 					escreva ("A eleição terminou em empate")
 				}
@@ -81,7 +85,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 352; 
+ * @POSICAO-CURSOR = 1413; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
